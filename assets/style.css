@@ -1,0 +1,30 @@
+#field-dropdown {
+    width: 50%;
+    margin: 20px 0;
+  }
+  
+  /* Style for Graphs */
+  #earnings-line-chart,
+  #earnings-bar-chart,
+  #earnings-scatter-plot,
+  #cohort-size-bar-chart {
+    margin-bottom: 20px;
+  }
+  
+  .header {
+      text-align: center;
+      background-color: #4caf72;
+      color: white;
+      padding: 20px;
+  }
+  
+  /* Dropdown Style */
+  .dropdown {
+      width: 50%;
+      margin: 20px 0;
+  }
+  
+  /* Graph Style */
+  .graph {
+      margin-bottom: 20px;
+  }

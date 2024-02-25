@@ -58,41 +58,6 @@ app.layout = html.Div([
     )
 ])
 
-# Callback to update the graphs based on the selected field of study
-@app.callback(
-    [Output('earnings-line-chart', 'figure'),
-     Output('earnings-bar-chart', 'figure'),
-     Output('earnings-scatter-plot', 'figure'),
-     Output('cohort-size-bar-chart', 'figure')],
-    [Input('field-dropdown', 'value')]
-)
-def update_graphs(selected_field):
-    # Filter the DataFrame based on the selected field of study
-    filtered_df = df[df['Field of Study (2-digit CIP code)'] == selected_field]
-
-    # Line chart for median earnings over the years
-    line_chart = px.line(filtered_df, x='Years After Graduation', y='Median Income',
-                         title=f'Median Income Over the Years - {selected_field}',
-                         labels={'Years After Graduation': 'Years After Graduation', 'Median Income': 'Median Income'})
-
-    # Bar chart for average earnings by degree level
-    bar_chart = px.bar(filtered_df, x='Credential', y='Median Income',
-                       title=f'Average Earnings by Degree Level - {selected_field}',
-                       labels={'Credential': 'Degree Level', 'Median Income': 'Average Earnings'})
-
-    # Scatter plot for earnings vs. employment rate
-    scatter_plot = px.scatter(filtered_df, x='Years After Graduation', y='Median Income',
-                              title=f'Earnings vs. Employment Rate - {selected_field}',
-                              labels={'Years After Graduation': 'Years After Graduation', 'Median Income': 'Median Income'})
-
-    # Bar chart for cohort size
-    cohort_size_chart = px.bar(filtered_df, x='Credential', y='Cohort Size',
-                               title=f'Cohort Size - {selected_field}',
-                               labels={'Credential': 'Degree Level', 'Cohort Size': 'Cohort Size'})
-
-
-    return line_chart, bar_chart, scatter_plot, cohort_size_chart
-
 # Run the application
 if __name__ == '__main__':
     app.run_server(debug=True)

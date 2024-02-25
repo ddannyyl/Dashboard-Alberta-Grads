@@ -25,7 +25,6 @@ app.layout = html.Div([
     ),
 
 
-
     # Line chart for median earnings over the years
     dcc.Graph(
         id='earnings-line-chart',
@@ -92,9 +91,8 @@ def update_graphs(selected_field):
                                labels={'Credential': 'Degree Level', 'Cohort Size': 'Cohort Size'})
 
 
-
     return line_chart, bar_chart, scatter_plot, cohort_size_chart
-    
+
 # Run the application
 if __name__ == '__main__':
     app.run_server(debug=True)

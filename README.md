@@ -13,6 +13,10 @@ Run the following command
 ```bash
 pip install dash pandas plotly
 ```
+
 ### Run Program
+
 ```bash
 python database.py
+
+```

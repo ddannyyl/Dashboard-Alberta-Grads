@@ -7,7 +7,7 @@ import plotly.express as px
 px.defaults.template = "ggplot2"
 
 # Load the dataset
-url = 'https://github.com/ddannyyl/Dashboard-Alberta-Grads/raw/main/alberta_post_grad_dataset.csv'
+url = 'https://raw.githubusercontent.com/ddannyyl/Dashboard-Alberta-Grads/master/alberta_post_grad_dataset.csv'
 df = pd.read_csv(url)
 
 app = dash.Dash(__name__, external_stylesheets=['assets/style.css'])

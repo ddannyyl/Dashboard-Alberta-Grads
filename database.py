@@ -55,23 +55,28 @@ app.layout = html.Div([
 )
 # Graph made for each statistic
 def update_graphs(selected_field):
+    # Filter dataset based on selected field of study
     filtered_df = df[df['Field of Study (2-digit CIP code)'] == selected_field]
 
+    # Create line chart for median income over years
     line_chart = px.line(filtered_df, x='Years After Graduation', y='Median Income',
                          title=f'Median Income Over the Years - {
                              selected_field}',
                          labels={'Years After Graduation': 'Years After Graduation', 'Median Income': 'Median Income'})
 
+    # Create bar chart for average earnings by degree level
     bar_chart = px.bar(filtered_df, x='Credential', y='Median Income',
                        title=f'Average Earnings by Degree Level - {
                            selected_field}',
                        labels={'Credential': 'Degree Level', 'Median Income': 'Average Earnings'})
 
+    # Create scatter plot for earnings vs. employment rate
     scatter_plot = px.scatter(filtered_df, x='Years After Graduation', y='Median Income',
                               title=f'Earnings vs. Employment Rate - {
                                   selected_field}',
                               labels={'Years After Graduation': 'Years After Graduation', 'Median Income': 'Median Income'})
 
+    # Create bar chart for cohort size
     cohort_size_chart = px.bar(filtered_df, x='Credential', y='Cohort Size',
                                title=f'Cohort Size - {selected_field}',
                                labels={'Credential': 'Degree Level', 'Cohort Size': 'Cohort Size'})

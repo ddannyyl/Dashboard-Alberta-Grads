@@ -4,6 +4,7 @@ from dash.dependencies import Input, Output
 import pandas as pd
 import plotly.express as px
 
+# Set default plotly template
 px.defaults.template = "ggplot2"
 
 # Load the dataset
@@ -25,7 +26,7 @@ app.layout = html.Div([
         multi=False,
         className='dropdown'
     ),
-
+    # Container for displaying graphs
     html.Div([
         dcc.Loading(
             id='loading-indicator',
@@ -37,7 +38,7 @@ app.layout = html.Div([
             ]
         )
     ], className='graph-container'),
-
+    # Footer
     html.Footer([
         html.P('© 2024 Alberta Grads Dashboard. All rights reserved.'),
         html.A('Terms of Service', href='#'),
